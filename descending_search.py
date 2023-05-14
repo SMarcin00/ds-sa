@@ -31,4 +31,4 @@ def descending_search(dist_matrix, iter_space, initial_solution=0):
             x = x_prim
             x_distance = util.calculate_total_distance(dist_matrix, x)
 
-    return x, x_distance
+    return x, x_distance, distances

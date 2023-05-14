@@ -31,8 +31,12 @@ def simulated_annealing(
         distances.append(new_distance)
 
         delta_distance = new_distance - current_distance
-        print(f"{delta_distance=}, {temperature=}, {cooling_rate=}, {iter_space=}")
-        acceptance_prob = math.exp(-delta_distance / temperature)
+        # print(f"{delta_distance=}, {temperature=}, {cooling_rate=}, {iter_space=}")
+        try:
+            acceptance_prob = math.exp(-delta_distance / temperature)
+        except OverflowError:
+            return best_order, best_distance, distances
+            
 
         if delta_distance < 0 or random.random() < acceptance_prob:
             current_order = new_order

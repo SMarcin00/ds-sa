@@ -103,7 +103,7 @@ for seed in seed_values:
             t0 = perf_counter()
 
             # distances is the list of all case that we checked
-            best_order, best_distance = descending_search(
+            best_order, best_distance, distances = descending_search(
                 dist_matrix, iter_space, intitial_order
             )
 
