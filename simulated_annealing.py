@@ -2,7 +2,8 @@ import random
 import math
 import util
 
-def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, num_iterations, initial_solution=0):
+def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, iter_space, initial_solution=0):
+    i = 0
     num_cities = dist_matrix.shape[0]
     if initial_solution == 0:
         initial_solution = util.generate_initial_solution(num_cities)
@@ -15,8 +16,9 @@ def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, num_iter
     temperature = initial_temperature
     distances = []
 
-    for _ in range(num_iterations):
+    while i < iter_space:
         new_order = current_order.copy()
+        i += 1
 
         city1, city2 = random.sample(range(num_cities), 2)
         new_order[city1], new_order[city2] = new_order[city2], new_order[city1]
