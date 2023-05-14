@@ -1,7 +1,5 @@
 import random
 
-random.seed(1)
-
 def calculate_total_distance(dist_matrix, order):
     total_distance = 0.0
     for i in range(len(order) - 1):
