@@ -97,29 +97,27 @@ for seed in seed_values:
     for msize in matrix_sizes:
         gen = RandomNumberGenerator(seedVaule=seed)
         dist_matrix = populate_distance_matrix(msize, gen)
-        for init_temp in init_temp_values:
-            for cooling_rate in cooling_rate_values:
-                for iter_space in iter_space_values:
-                    intitial_order = util.generate_initial_solution(msize)
+        for iter_space in iter_space_values:
+            intitial_order = util.generate_initial_solution(msize)
 
-                    t0 = perf_counter()
+            t0 = perf_counter()
 
-                    # distances is the list of all case that we checked
-                    best_order, best_distance = descending_search(
-                        dist_matrix, iter_space, intitial_order
-                    )
+            # distances is the list of all case that we checked
+            best_order, best_distance = descending_search(
+                dist_matrix, iter_space, intitial_order
+            )
 
-                    ds_iter_results.append(
-                        {
-                            "Seed": seed,
-                            "MatrixSize": msize,
-                            "IterSpace": iter_space,
-                            "Path": best_order,
-                            "Length": best_distance,
-                            "Time": perf_counter() - t0,
-                        }
-                    )
-                    ds_pbar.update()
+            ds_iter_results.append(
+                {
+                    "Seed": seed,
+                    "MatrixSize": msize,
+                    "IterSpace": iter_space,
+                    "Path": best_order,
+                    "Length": best_distance,
+                    "Time": perf_counter() - t0,
+                }
+            )
+            ds_pbar.update()
 ds_pbar.close()
 
 ds_results_df = pd.DataFrame.from_dict(ds_iter_results)
