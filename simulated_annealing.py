@@ -1,8 +1,12 @@
-import random
 import math
+import random
+
 import util
 
-def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, iter_space, initial_solution=0):
+
+def simulated_annealing(
+    dist_matrix, initial_temperature, cooling_rate, iter_space, initial_solution=0
+):
     i = 0
     num_cities = dist_matrix.shape[0]
     if initial_solution == 0:
@@ -11,7 +15,7 @@ def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, iter_spa
     current_distance = util.calculate_total_distance(dist_matrix, current_order)
 
     best_order = None
-    best_distance = float('inf')
+    best_distance = float("inf")
 
     temperature = initial_temperature
     distances = []
@@ -27,6 +31,7 @@ def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, iter_spa
         distances.append(new_distance)
 
         delta_distance = new_distance - current_distance
+        print(f"{delta_distance=}, {temperature=}, {cooling_rate=}, {iter_space=}")
         acceptance_prob = math.exp(-delta_distance / temperature)
 
         if delta_distance < 0 or random.random() < acceptance_prob:
@@ -40,5 +45,3 @@ def simulated_annealing(dist_matrix, initial_temperature, cooling_rate, iter_spa
         temperature *= cooling_rate
 
     return best_order, best_distance, distances
-
-
