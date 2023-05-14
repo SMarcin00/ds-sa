@@ -8,6 +8,7 @@ def descending_search(dist_matrix, iter_space, initial_solution=0):
     x = initial_solution
     print(x)
     x_distance = util.calculate_total_distance(dist_matrix, x)
+    distances = []
 
     while iter < iter_space:
         x_prim = x.copy()
@@ -20,6 +21,7 @@ def descending_search(dist_matrix, iter_space, initial_solution=0):
                     iter+=1
                     x_s[i], x_s[j] = x_s[j], x_s[i]
                     x_s_distance = util.calculate_total_distance(dist_matrix, x_s)
+                    distances.append(x_s_distance)
                     if x_s_distance < x_prim_distance:
                         x_prim = x_s
                         x_prim_distance = util.calculate_total_distance(dist_matrix, x_prim)
