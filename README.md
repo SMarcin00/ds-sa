@@ -1,2 +1,2 @@
-# rs-sa
-Random Search and Simulated Annealing algorithms
+# ds-sa
+Descending Search and Simulated Annealing algorithms for TSP problem
