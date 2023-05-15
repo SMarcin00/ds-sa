@@ -75,6 +75,7 @@ for seed in seed_values:
                             "IterSpace": iter_space,
                             "Path": best_order,
                             "Length": best_distance,
+                            "LenDistances": len(distances),
                             "Time": perf_counter() - t0,
                         }
                     )
