@@ -27,12 +27,12 @@ def populate_distance_matrix(N, gen):
 # TODO visualise distances list to show how look the exploration
 
 
-seed_values = [1, 42, 666, 2137, 321, 1435][:2]
-matrix_sizes = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20][:2]
+seed_values = [1, 42, 666, 2137, 321, 1435]
+matrix_sizes = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
-init_temp_values = [1_000, 1_500, 2_000][:2]
-cooling_rate_values = [0.9, 0.95, 0.99][:2]
-iter_space_values = [1_000, 3_000, 7_000, 10_000][:2]
+init_temp_values = [1_000, 1_500, 2_000]
+cooling_rate_values = [0.9, 0.95, 0.99]
+iter_space_values = [1_000, 3_000, 7_000, 10_000]
 
 print(" Simulated annealing ".center(80, "="))
 
